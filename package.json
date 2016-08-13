@@ -1,0 +1,42 @@
+{
+  "name": "npm-src",
+  "version": "0.0.0",
+  "description": "ghq for npm",
+  "license": "MIT",
+  "repository": "akameco/npm-src",
+  "author": {
+    "name": "akameco",
+    "email": "akameco.t@gmail.com",
+    "url": "akameco.github.io"
+  },
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "npm",
+    "install",
+    "hook",
+    "ghq",
+    "git"
+  ],
+  "dependencies": {
+    "co": "^4.6.0",
+    "execa": "^0.4.0",
+    "read-pkg": "^1.1.0"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "esnext": true
+  }
+}
