@@ -1,18 +1,13 @@
 'use strict';
-const path = require('path');
+const packageJson = require('package-json');
 const co = require('co');
 const execa = require('execa');
-const readPkg = require('read-pkg');
 
 const runGhqGet = repo => execa('ghq', ['get', '-p', repo]);
 
-function * npmSrc(args) {
+function * npmSrc(repos) {
 	try {
-		const readPkgs = args.map(pkg =>
-			readPkg(path.resolve('node_modules', pkg))
-		);
-
-		const pkgs = yield Promise.all(readPkgs);
+		const pkgs = yield Promise.all(repos.map(repo => packageJson(repo)));
 		const ps = pkgs
 			.map(pkg => pkg.repository)
 			.filter(repo => repo.type === 'git')
@@ -22,15 +17,14 @@ function * npmSrc(args) {
 		return results.map(x => x.stdout);
 	} catch (err) {
 		if (err.code === 'ENOENT') {
-			throw new Error(`Retry after npm install ${args}`);
+			throw new Error(`Retry after npm install ${repos}`);
 		}
 	}
 }
 
-module.exports = args => {
-	if (!Array.isArray(args)) {
-		return Promise.reject('Expected array');
+module.exports = repos => {
+	if (!Array.isArray(repos)) {
+		return Promise.reject('Expected a array');
 	}
-
-	return co(npmSrc(args));
+	return co(npmSrc(repos));
 };

@@ -13,5 +13,5 @@ test('ghq install', async t => {
 });
 
 test('throws', async t => {
-	t.throws(fn('co'), /Expected array/);
+	t.throws(fn('co'), /Expected a array/);
 });
