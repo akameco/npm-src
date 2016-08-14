@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save npm-src
+$ npm install --global npm-src
 ```
 
 ## Required
@@ -15,10 +15,16 @@ $ npm install --save npm-src
 
 ## Usage
 
-```js
-const npmSrc = require('npm-src');
+```
+$ npm-src --help
 
-npmSrc(['npm-src']);
+  ghq for npm
+
+  Usage
+    $ npm-src <package name> [string, array]
+
+  Examples
+    $ npm-src ava xo
 ```
 
 
