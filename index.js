@@ -2,7 +2,7 @@
 const packageJson = require('package-json');
 const execa = require('execa');
 
-const runGhqGet = repo => execa('ghq', ['get', '-p', repo]);
+const runGhqGet = repo => execa.stdout('ghq', ['get', '-p', repo]);
 
 const clone = repo =>
 	packageJson(repo)
@@ -12,7 +12,7 @@ const clone = repo =>
 				return Promise.reject('Expected a git repository');
 			}
 			return runGhqGet(repo.url);
-		}).then(result => result.stdout);
+		});
 
 module.exports = repos => {
 	if (!Array.isArray(repos)) {
