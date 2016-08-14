@@ -15,7 +15,6 @@ const clone = repo =>
 			return runGhqGet(repo.url);
 		});
 
-
 const ghqTasks = repos => {
 	const tasks = repos.map(repo => ({
 		title: `ghq get ${repo}`,
