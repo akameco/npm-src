@@ -10,7 +10,7 @@ const clone = repo =>
 		.then(pkg => pkg.repository)
 		.then(repo => {
 			if (repo.type !== 'git') {
-				return Promise.reject('Expected a git repository');
+				return Promise.reject(new Error('Expected a git repository'));
 			}
 			return runGhqGet(repo.url);
 		});
@@ -28,7 +28,7 @@ const ghqTasks = repos => {
 
 module.exports = repos => {
 	if (!Array.isArray(repos)) {
-		return Promise.reject('Expected a array');
+		return Promise.reject(new TypeError('Expected a array'));
 	}
 
 	const tasks = new Listr([{
