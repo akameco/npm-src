@@ -28,16 +28,6 @@ $ npm-src --help
 ```
 
 
-## API
-
-### npmSrc(input)
-
-#### input
-
-Type: `array`
-
-package names.
-
 ## License
 
 MIT © [akameco](http://akameco.github.io)
