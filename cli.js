@@ -19,9 +19,4 @@ if (cli.input.length === 0) {
 
 updateNotifier({pkg: cli.pkg}).notify();
 
-npmSrc(cli.input)
-	.then(results => {
-		results.forEach(x => console.log(x));
-	}).catch(err => {
-		console.log(err);
-	});
+npmSrc(cli.input);
