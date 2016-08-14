@@ -2,6 +2,7 @@
 
 > GHQ for npm
 
+<img src="screenshot.gif">
 
 ## Install
 
