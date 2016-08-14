@@ -18,7 +18,9 @@ const clone = repo =>
 const ghqTasks = repos => {
 	const tasks = repos.map(repo => ({
 		title: `ghq get ${repo}`,
-		task: () => clone(repo)
+		task: () => clone(repo).catch(() => {
+			return Promise.reject(new Error(`${repo} not exits. Check package name`));
+		})
 	}));
 
 	return new Listr(tasks);
@@ -34,7 +36,5 @@ module.exports = repos => {
 		task: () => ghqTasks(repos)
 	}]);
 
-	return tasks.run().catch(err => {
-		console.error(err);
-	});
+	return tasks.run();
 };
