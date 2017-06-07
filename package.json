@@ -39,6 +39,9 @@
     "xo": "^0.18.2"
   },
   "xo": {
-    "esnext": true
+    "semicolon": false,
+    "rules": {
+      "object-curly-spacing": 0
+    }
   }
 }
