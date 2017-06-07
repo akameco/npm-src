@@ -1,6 +1,6 @@
 {
   "name": "npm-src",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "ghq for npm",
   "license": "MIT",
   "repository": "akameco/npm-src",
