@@ -13,8 +13,8 @@ const cli = meow(`
 `)
 
 if (cli.input.length === 0) {
-	console.error('Specify a package name')
-	process.exit(1)
+  console.error('Specify a package name')
+  process.exit(1)
 }
 
 updateNotifier({ pkg: cli.pkg }).notify()
