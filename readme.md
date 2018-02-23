@@ -1,5 +1,7 @@
 # npm-src [![Build Status](https://travis-ci.org/akameco/npm-src.svg?branch=master)](https://travis-ci.org/akameco/npm-src)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/akameco/npm-src.svg)](https://greenkeeper.io/)
+
 > GHQ for npm
 
 <img src="screenshot.gif">
